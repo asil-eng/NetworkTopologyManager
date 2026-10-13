@@ -1,0 +1,7 @@
+out/
+.DS_Store
+sources.txt
+
+# Local secrets - copy the .example files instead
+db.properties
+.env

@@ -1,0 +1,6 @@
+# MySQL connection settings.
+# Copy this file to db.properties and set db.password to the same password
+# you put in .env (Docker) or to your own MySQL root password.
+db.url=jdbc:mysql://localhost:3306/network_manager
+db.username=root
+db.password=change_me

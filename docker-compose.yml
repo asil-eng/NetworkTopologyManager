@@ -1,0 +1,19 @@
+# Runs MySQL in Docker - no MySQL install needed.
+#   Start:  docker compose up -d
+#   Stop:   docker compose down
+# On the very first start, database/schema.sql is run automatically
+# (tables + demo data). To reset everything: docker compose down -v
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: ntm-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in .env (copy .env.example)}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+      - ntm-data:/var/lib/mysql
+
+volumes:
+  ntm-data:
